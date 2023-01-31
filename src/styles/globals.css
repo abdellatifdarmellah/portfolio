@@ -3,13 +3,24 @@
 @tailwind utilities;
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
 
-
 @layer base {
   body {
     font-family: 'Montserrat', sans-serif;
-    @apply bg-[#0F0E0E] text-[#EEEEEE] tracking-wide
+    @apply bg-[#0F0E0E] text-[#EEEEEE] tracking-wide;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold
+  }
+  h1 {
+    @apply text-4xl sm:text-5xl md:text-6xl  
+  }
+  h2 {
+    @apply text-3xl sm:text-4xl  
+  }
+  li {
+    @apply cursor-pointer
   }
   button {
-    @apply rounded-[64px] bg-[#8B9A46] text-[#EEEEEE] font-semibold text-lg sm:text-xl h-14 w-[192px] font-montserrat hover:scale-110 ease-in-out duration-300
+    @apply rounded-lg bg-[#8B9A46] text-[#EEEEEE] font-semibold text-lg;
   }
 }

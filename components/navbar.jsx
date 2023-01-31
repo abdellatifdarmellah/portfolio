@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import {AiOutlineMenu, AiOutlineClose, AiOutlineInstagram, AiOutlineTwitter} from 'react-icons/ai'
@@ -9,27 +9,39 @@ import {BsFacebook} from 'react-icons/bs'
 // if its true the menu is displayed, if its false the menu is hidden 
 const Navbar = () => {
     const [nav, setNav] = useState(false)
+    const [shadow, setShadow] = useState(false)
 
     const handleNav = () => {
         setNav(!nav)
     }
+
+    useEffect(() => {
+        const handleShadow = () => {
+            if (window.scrollY >= 90) {
+                setShadow(true)
+            } else {
+                setShadow(false)
+            }
+        }
+        window.addEventListener('scroll', handleShadow);
+    }, [])
     return (
-        <div className='fixed w-full h-20 shadow-sm z-[100]'>
+        <div className={shadow ? 'fixed w-full h-20 shadow-sm shadow-[#EEEEEE] z-[100]' : 'fixed w-full h-20 z-[100]'}>
             {/* the actual navbar icon + list + menu button when the screen is small */}
-            <div className='flex justify-between items-center w-full h-full px-10 md:px-24'>
+            <div className='flex justify-between items-center w-full h-full px-10 md:px-64'>
                 {/* top left icon */}
-                <Image className='object-cover h-16 w-16 rounded-full border-[#8B9A46] border-4 cursor-pointer hover:scale-105 ease-in-out duration-300' src="/../public/assets/image1.jpg" alt="/" width='64' height='64'/>
+                <Image className='h-16 w-16 rounded-full border-[#8B9A46] border-4 cursor-pointer hover:scale-105 ease-in-out duration-300' src="/../public/assets/image1.jpg" alt="/" width='384' height='332'/>
                 <div>
                     {/* menu; projects contact about */}
-                    <ul className='hidden md:flex font-montserrat font-semibold md:space-x-16 lg:space-x-32'>
+                    <ul className='hidden md:flex font-montserrat font-semibold md:space-x-16 lg:space-x-32 2xl:space-x-48'>
                         <Link href='/'>
-                            <li className='text-sm hover:scale-110 ease-in-out duration-200 hover:text-[#8B9A46]'>Projects</li>
+                            <li className='text-lg hover:scale-110 ease-in-out duration-200 hover:text-[#8B9A46]'>Projects</li>
                         </Link>
                         <Link href='/'>
-                            <li className='text-sm hover:scale-110 ease-in-out duration-200 hover:text-[#8B9A46]'>Contact</li>
+                            <li className='text-lg hover:scale-110 ease-in-out duration-200 hover:text-[#8B9A46]'>About</li>
                         </Link>
                         <Link href='/'>
-                            <li className='text-sm hover:scale-110 ease-in-out duration-200 hover:text-[#8B9A46]'>About</li>
+                            <li className='text-lg  hover:scale-110 ease-in-out duration-200 hover:text-[#8B9A46]'>Contact</li>
                         </Link>
                     </ul>
                     {/* hamburger menu; it get displayed when the screen is small*/}
@@ -68,10 +80,10 @@ const Navbar = () => {
                                 <li className='py-3 sm:py-4 text-sm sm:text-xl hover:scale-x-95 ease-in-out duration-200 hover:text-[#8B9A46]'>Projects</li>
                             </Link>
                             <Link href='/'>
-                                <li className='py-3 sm:py-4 text-sm sm:text-xl hover:scale-x-95 ease-in-out duration-200 hover:text-[#8B9A46]'>Contact</li>
+                                <li className='py-3 sm:py-4 text-sm sm:text-xl hover:scale-x-95 ease-in-out duration-200 hover:text-[#8B9A46]'>About</li>
                             </Link>
                             <Link href='/'>
-                                <li className='py-3 sm:py-4 text-sm sm:text-xl hover:scale-x-95 ease-in-out duration-200 hover:text-[#8B9A46]'>About</li>
+                                <li className='py-3 sm:py-4 text-sm sm:text-xl hover:scale-x-95 ease-in-out duration-200 hover:text-[#8B9A46]'>Contact</li>
                             </Link>
                         </ul>
                         {/* socials */}
