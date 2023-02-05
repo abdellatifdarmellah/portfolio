@@ -2,11 +2,11 @@ import React from 'react'
 import Image from 'next/image';
 import {AiOutlineInstagram, AiOutlineTwitter} from 'react-icons/ai'
 import {BsFacebook} from 'react-icons/bs'
-import {HiOutlineChevronDoubleUp} from 'react-icons/hi';
+import Link from 'next/link';
 
 const Contact = () => {
   return (
-    <div id='contact' className='w-full lg:h-screen'>
+    <div className='w-full lg:h-screen py-32 sm:py-16'>
         <div className='max-w-[1240px] m-auto px-2 py-16 w-full'>
             <p className='text-xl tracking-widest text-[#8B9A46] uppercase'>Contact</p>
             <h2 className='py-4'>Get In Touch</h2>
@@ -26,13 +26,19 @@ const Contact = () => {
                             <p className='pt-8'>Connect with me!</p>
                             <div className='flex items-center justify-between py-4'>
                                 <div className='rounded-full shadow-sm shadow-[#EEEEEE] p-6 cursor-pointer hover:scale-110 ease-in-out duration-300'>
-                                    <AiOutlineInstagram />
+                                    <Link href='https://www.instagram.com/aneeesss___/'>
+                                        <AiOutlineInstagram />
+                                    </Link>
                                 </div>
                                 <div className='rounded-full shadow-sm shadow-[#EEEEEE] p-6 cursor-pointer hover:scale-110 ease-in-out duration-300'>
-                                    <BsFacebook />
+                                    <Link href='https://www.facebook.com/profile.php?id=100005565856002'>
+                                        <BsFacebook />
+                                    </Link>
                                 </div>
                                 <div className='rounded-full shadow-sm shadow-[#EEEEEE] p-6 cursor-pointer hover:scale-110 ease-in-out duration-300'>
-                                    <AiOutlineTwitter />
+                                    <Link href='https://twitter.com/Abdelma67016880'>
+                                        <AiOutlineTwitter />
+                                    </Link>
                                 </div>
                             </div>
                         </div>
